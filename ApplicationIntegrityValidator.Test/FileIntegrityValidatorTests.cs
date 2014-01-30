@@ -11,32 +11,34 @@ namespace ApplicationIntegrityValidator.Test
         [TestMethod]
         public void FileExistsMustReturnPassedResultInCaseOfAnExistingFile()
         {
-            IntegrityValidator tester = new IntegrityValidator();
+            var tester = new IntegrityValidator();
             var result = ((FileIntegrityValidator)tester.File(@"c:\windows\notepad.exe")).Exists();
 
             Assert.AreEqual("Ensure File notepad.exe exists in c:\\windows", ((IntegrityValidationResult)result.First()).Description);
             Assert.IsTrue(((IntegrityValidationResult)result.First()).Succeed);
             Assert.IsNull(((IntegrityValidationResult)result.First()).Exception);
             Assert.IsInstanceOfType(result, typeof(FileIntegrityValidator));
+            Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
         [TestMethod]
         public void FileExistsMustReturnFailedResultInCaseOfANonExistingFile()
         {
-            IntegrityValidator tester = new IntegrityValidator();
+            var tester = new IntegrityValidator();
             var result = ((FileIntegrityValidator)tester.File(@"c:\windows\notepad1.exe")).Exists();
 
             Assert.AreEqual("Ensure File notepad1.exe exists in c:\\windows", ((IntegrityValidationResult)result.First()).Description);
             Assert.IsFalse(((IntegrityValidationResult)result.First()).Succeed);
             Assert.IsNull(((IntegrityValidationResult)result.First()).Exception);
             Assert.IsInstanceOfType(result, typeof(FileIntegrityValidator));
+            Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
         [TestMethod]
-        public void FileMustHasAttribute()
+        public void FileMustHaveAttributes()
         {
-            IntegrityValidator tester = new IntegrityValidator();
-            string path = @"c:\IntegrityTest.txt";
+            var tester = new IntegrityValidator();
+            const string path = @"c:\IntegrityTest.txt";
             if (!File.Exists(path))
                 File.Create(path);
             File.SetAttributes(path, FileAttributes.ReadOnly | FileAttributes.System);
@@ -45,13 +47,14 @@ namespace ApplicationIntegrityValidator.Test
             Assert.AreEqual("Ensure File IntegrityTest.txt has ReadOnly, System attributes", result.First().Description);
             Assert.IsTrue(result.First().Succeed);
             Assert.IsNull(result.First().Exception);
+            Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
         [TestMethod]
         public void FileChainingTest()
         {
-            IntegrityValidator tester = new IntegrityValidator();
-            string path = @"c:\IntegrityTest.txt";
+            var tester = new IntegrityValidator();
+            const string path = @"c:\IntegrityTest.txt";
             if (!File.Exists(path))
                 File.Create(path);
             File.SetAttributes(path, FileAttributes.ReadOnly | FileAttributes.System);
@@ -60,10 +63,12 @@ namespace ApplicationIntegrityValidator.Test
             Assert.AreEqual("Ensure File IntegrityTest.txt exists in c:\\", result.First().Description);
             Assert.IsTrue(result.First().Succeed);
             Assert.IsNull(result.First().Exception);
+            Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
 
             Assert.AreEqual("Ensure File IntegrityTest.txt has ReadOnly, System attributes", result.Last().Description);
             Assert.IsTrue(result.Last().Succeed);
             Assert.IsNull(result.Last().Exception);
+            Assert.IsInstanceOfType(result.Last(), typeof(IntegrityValidationResult));
         }
 
     }

@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileIntegrityValidator.cs" />
+    <Compile Include="FolderIntegrityValidator.cs" />
     <Compile Include="IntegrityValidationResult.cs" />
     <Compile Include="IntegrityValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
