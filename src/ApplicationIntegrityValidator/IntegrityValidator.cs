@@ -16,5 +16,10 @@ namespace ApplicationIntegrityValidator
         {
             return new FolderIntegrityValidator(folderName);
         }
+
+        public AppSettingsIntegrityValidator AppSettings(string key)
+        {
+            return new AppSettingsIntegrityValidator(key);
+        }
     }
 }
