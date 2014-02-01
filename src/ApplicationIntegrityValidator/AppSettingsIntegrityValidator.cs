@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 
 namespace ApplicationIntegrityValidator
 {
     public class AppSettingsIntegrityValidator : IEnumerable<IntegrityValidationResult>
     {
-
         private readonly List<IntegrityValidationResult> _results;
         private readonly string _key;
 
@@ -16,16 +16,18 @@ namespace ApplicationIntegrityValidator
         {
             _key = key;
             _results = new List<IntegrityValidationResult>();
+
+
         }
 
         public AppSettingsIntegrityValidator Exists()
         {
             var result = new IntegrityValidationResult()
-                         {
-                             Description = string.Format("Ensure app setting with key: {0} exists in web.config", _key),
-                             Succeed = ConfigurationManager.AppSettings[_key] != null,
-                             Exception = null
-                         };
+            {
+                Description = string.Format("Ensure app setting with key: {0} exists in web.config", _key),
+                Succeed = ConfigurationManager.AppSettings[_key] != null,
+                Exception = null
+            };
             _results.Add(result);
             return this;
         }
@@ -46,6 +48,8 @@ namespace ApplicationIntegrityValidator
         {
             return _results.GetEnumerator();
         }
+
+
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
