@@ -31,12 +31,12 @@ namespace ApplicationIntegrityValidator
 
         public FolderIntegrityValidator HasAttributes(FileAttributes fileAttributes)
         {
-            var attrs = new DirectoryInfo(_folderName).Attributes;
+            var folder = new DirectoryInfo(_folderName);
             var result = new IntegrityValidationResult()
                          {
                              Exception = null,
-                             Description = string.Format("Ensure Folder {0} has {1} attributes", Path.GetDirectoryName(_folderName), fileAttributes),
-                             Succeed = (attrs & fileAttributes) == fileAttributes
+                             Description = string.Format("Ensure Folder {0} has {1} attribute(s)", Path.GetDirectoryName(_folderName), fileAttributes),
+                             Succeed = (folder.Attributes & fileAttributes) == fileAttributes
                          };
             _results.Add(result);
             return this;
