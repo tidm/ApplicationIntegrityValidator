@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettingsIntegrityValidator.cs" />
+    <Compile Include="AppSettingsIntegrityValidator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FileIntegrityValidator.cs" />
     <Compile Include="FolderIntegrityValidator.cs" />
     <Compile Include="IntegrityValidationResult.cs" />
