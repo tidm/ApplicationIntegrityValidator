@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Security.AccessControl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -22,6 +23,7 @@ namespace ApplicationIntegrityValidator.Test
             Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
+        [TestMethod]
         public void FolderExistsMustReturnFaildResultInCaseOfAnNonExistingFolder()
         {
             var tester = new IntegrityValidator();
@@ -35,6 +37,7 @@ namespace ApplicationIntegrityValidator.Test
             Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
+        [TestMethod]
         public void FolderMustHaveAttributes()
         {
             var tester = new IntegrityValidator();
@@ -51,6 +54,7 @@ namespace ApplicationIntegrityValidator.Test
             Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
 
+        [TestMethod]
         public void FileChainingTest()
         {
             var tester = new IntegrityValidator();

@@ -35,9 +35,11 @@ namespace ApplicationIntegrityValidator
             var result = new IntegrityValidationResult()
                          {
                              Exception = null,
-                             Description = string.Format("Ensure Folder {0} Have {1} attributes")
-                         }
-            
+                             Description = string.Format("Ensure Folder {0} has {1} attributes", Path.GetDirectoryName(_folderName), fileAttributes),
+                             Succeed = (attrs & fileAttributes) == fileAttributes
+                         };
+            _results.Add(result);
+            return this;
         }
 
         public IEnumerator<IntegrityValidationResult> GetEnumerator()

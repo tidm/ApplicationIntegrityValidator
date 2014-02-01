@@ -11,5 +11,10 @@ namespace ApplicationIntegrityValidator
         {
             return new FileIntegrityValidator(fileName);
         }
+
+        public FolderIntegrityValidator Folder(string folderName)
+        {
+            return new FolderIntegrityValidator(folderName);
+        }
     }
 }
