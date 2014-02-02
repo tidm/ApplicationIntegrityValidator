@@ -90,7 +90,7 @@ namespace ApplicationIntegrityValidator.Test
     //    validationResult.Result = ValidationResults.Passed;
     //    validationResult.Exception = null;
 
-    //    var results = IntegirytTester.Database("ConnectionString").Table("Tableame").RowCount(rc => rc > 10).
+    //    var results = IntegirytTester.Database("ConnectionString").Table("Tableame").RowCount(rc => rc > 10). //done
     //    Database("ConnectionString").Table("Tablename").HasColumns("c1", "c2", "c3"). //Done
     //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").Exists(); //Done
     //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").TypeIs(typeof(int)); // Done
@@ -101,7 +101,6 @@ namespace ApplicationIntegrityValidator.Test
     //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column(new Cdef());
     //    IntegirytTester.Database("ConnectionString").Table("Tablename", (Cols, rows) =>  );
     //    //IntegirytTester.Database("ConnectionString").Table("Tablename").HasRow(new {C1 = "c1", C2 = "c2"});
-    //    //IntegirytTester.Database("ConnectionString").Table("Tableame").(rc => rc > 10);
     //    IntegirytTester.Database("ConnectionString").Sql("select * from User").Exists(); // IsValid
     //    IntegirytTester.Database("ConnectionString").Sql("select * from User Where userName == 'Administrator'").Result.Count(c => c == 1, "error message");
     //    IntegirytTester.Database("ConnectionString").Sql("select * from User Where userName == 'Administrator'").Result.Any(r => r.IsLocked == 1, "error message");

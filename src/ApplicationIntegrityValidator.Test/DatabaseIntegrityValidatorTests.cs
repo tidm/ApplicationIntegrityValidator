@@ -70,6 +70,17 @@ namespace ApplicationIntegrityValidator.Test
             Assert.IsInstanceOfType(result, typeof(TableIntegrityValidator));
         }
 
+        [TestMethod]
+        public void SpecificTableOfDatabaseHasRowCount()
+        {
+            var tester = new IntegrityValidator();
+            var result = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString).Table("SEC_USER").RowCount(rc => rc > 10);
+
+            Assert.AreEqual("Ensure Table: 'SEC_USER' has rows", result.First().Description);
+            Assert.IsTrue(result.First().Succeed);
+            Assert.IsNull(result.First().Exception);
+        }
+
         //public void SpecificTableOfDatabaseMustReturnRowCount()
         //{
         //    var tester = new IntegrityValidator();

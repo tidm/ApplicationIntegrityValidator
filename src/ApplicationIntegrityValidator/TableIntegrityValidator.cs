@@ -37,7 +37,6 @@ namespace ApplicationIntegrityValidator
                          };
             _results.Add(result);
             return this;
-
         }
 
         public TableIntegrityValidator HasColumns(List<string> columns)
@@ -71,6 +70,21 @@ namespace ApplicationIntegrityValidator
             return this;
         }
 
+        public TableIntegrityValidator RowCount(Func<int, bool> func)
+        {
+            var rowCount = DbExecutor.ExecuteScalar<decimal>(
+                new OleDbConnection(_connectionString),
+                string.Format("SELECT count(*) FROM {0}", _tableName));
+            var result = new IntegrityValidationResult()
+            {
+                Description = string.Format("Ensure Table: '{0}' has rows", _tableName),
+                Succeed = func((int)rowCount),
+                Exception = null
+            };
+            _results.Add(result);
+            return this;
+        }
+
         public ColumnIntegrityValidator Column(string columnName)
         {
             return new ColumnIntegrityValidator(_connectionString, _tableName, columnName);
@@ -85,5 +99,6 @@ namespace ApplicationIntegrityValidator
         {
             return _results.GetEnumerator();
         }
+
     }
 }
