@@ -22,7 +22,10 @@ namespace ApplicationIntegrityValidator
             return new AppConfigIntegrityValidator();
         }
 
-
+        public DatabaseIntegrityValidator Database(string connectionString)
+        {
+            return new DatabaseIntegrityValidator(connectionString);
+        }
 
     }
 }

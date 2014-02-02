@@ -91,13 +91,13 @@ namespace ApplicationIntegrityValidator.Test
     //    validationResult.Exception = null;
 
     //    var results = IntegirytTester.Database("ConnectionString").Table("Tableame").RowCount(rc => rc > 10).
-    //    Database("ConnectionString").Table("Tablename").HasColumns("c1", "c2", "c3").
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").Exists();
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").TypeIs(typeof(int));
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").HasIndex();
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsPrimaryKey();
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsForeignKey();
-    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsNullable(true);
+    //    Database("ConnectionString").Table("Tablename").HasColumns("c1", "c2", "c3"). //Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").Exists(); //Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").TypeIs(typeof(int)); // Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").HasIndex(); //Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsPrimaryKey(); //Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsForeignKey(); //Done
+    //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column("c1").IsNullable(true); //Done
     //    IntegirytTester.Database("ConnectionString").Table("Tablename").Column(new Cdef());
     //    IntegirytTester.Database("ConnectionString").Table("Tablename", (Cols, rows) =>  );
     //    //IntegirytTester.Database("ConnectionString").Table("Tablename").HasRow(new {C1 = "c1", C2 = "c2"});

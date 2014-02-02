@@ -49,8 +49,6 @@ namespace ApplicationIntegrityValidator
             return _results.GetEnumerator();
         }
 
-
-
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return _results.GetEnumerator();

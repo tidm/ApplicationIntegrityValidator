@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DbExecutor">
+      <HintPath>..\..\..\Dorna 1.2\Main\Source\Shared Dlls\DbExecutor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,12 +47,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppSettingsIntegrityValidator.cs" />
+    <Compile Include="ColumnIntegrityValidator.cs" />
     <Compile Include="ConnectionStringsIntegrityValidator.cs" />
+    <Compile Include="DatabaseIntegrityValidator.cs" />
     <Compile Include="FileIntegrityValidator.cs" />
     <Compile Include="FolderIntegrityValidator.cs" />
     <Compile Include="IntegrityValidationResult.cs" />
     <Compile Include="IntegrityValidator.cs" />
+    <Compile Include="OracleDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TableIntegrityValidator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
