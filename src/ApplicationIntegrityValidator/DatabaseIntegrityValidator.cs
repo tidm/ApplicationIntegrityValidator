@@ -22,5 +22,10 @@ namespace ApplicationIntegrityValidator
             return new TableIntegrityValidator(tableName, _connectionString);
         }
 
+        public ProcedureIntegrityValidator Procedure(string procedureName)
+        {
+            return new ProcedureIntegrityValidator(_connectionString, procedureName);
+        }
+
     }
 }

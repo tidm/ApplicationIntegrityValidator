@@ -232,5 +232,21 @@ namespace ApplicationIntegrityValidator.Test
 
         #endregion
 
+        #region Stored Procedure
+
+        [TestMethod]
+        public void StoredProcedureValidatorMustReturnPassedResutInCaseOfExistingStoredProcedure()
+        {
+            var tester = new IntegrityValidator();
+            var result = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString).Procedure("TEST").Exists();
+
+            Assert.AreEqual("Ensure the database has procedure: 'TEST'", result.First().Description);
+            Assert.IsTrue(result.First().Succeed);
+            Assert.IsNull(result.First().Exception);
+            Assert.IsInstanceOfType(result, typeof(ProcedureIntegrityValidator));
+            Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
+        }
+        #endregion
+
     }
 }
