@@ -38,6 +38,7 @@
     <Reference Include="DbExecutor">
       <HintPath>..\..\..\Dorna 1.2\Main\Source\Shared Dlls\DbExecutor.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
@@ -65,6 +66,7 @@
     <Compile Include="FileIntegrityValidatorTests.cs" />
     <Compile Include="AppSettingsIntegrityValidatorTests.cs" />
     <Compile Include="DatabaseIntegrityValidatorTests.cs" />
+    <Compile Include="WebServiceIntegrityValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationIntegrityValidator\ApplicationIntegrityValidator.csproj">

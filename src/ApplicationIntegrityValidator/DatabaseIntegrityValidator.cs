@@ -27,5 +27,20 @@ namespace ApplicationIntegrityValidator
             return new ProcedureIntegrityValidator(_connectionString, procedureName);
         }
 
+        public SqlIntegrityValidator Sql(string query)
+        {
+            return new SqlIntegrityValidator(_connectionString, query);
+        }
+
+        public SequenceIntegrityValidator Sequence(string sequenceName)
+        {
+            return new SequenceIntegrityValidator(_connectionString, sequenceName);
+        }
+
+        public IndexIntegrityValidator Index(string indexName)
+        {
+            return new IndexIntegrityValidator(_connectionString, indexName);
+        }
+
     }
 }

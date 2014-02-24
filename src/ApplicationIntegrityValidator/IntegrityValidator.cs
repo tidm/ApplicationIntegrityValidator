@@ -27,5 +27,10 @@ namespace ApplicationIntegrityValidator
             return new DatabaseIntegrityValidator(connectionString);
         }
 
+        public WebServiceIntegrityValidator WebService(string uri)
+        {
+            return new WebServiceIntegrityValidator(uri);
+        }
+
     }
 }

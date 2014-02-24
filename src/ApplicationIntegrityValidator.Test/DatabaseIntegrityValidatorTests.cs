@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Dynamic;
 using System.Linq;
 using Codeplex.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -247,6 +248,58 @@ namespace ApplicationIntegrityValidator.Test
             Assert.IsInstanceOfType(result.First(), typeof(IntegrityValidationResult));
         }
         #endregion
+
+        #region Sql
+
+        [TestMethod]
+        public void QueryMustHvesSpecificResult()
+        {
+            var tester = new IntegrityValidator();
+            var database = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString);
+            var result = database.Sql("Select * From SEC_USER").Result;
+            Assert.IsTrue(result.Count() > 0);
+        }
+
+        [TestMethod]
+        public void QueryMustReturnACollectionOfRows()
+        {
+            var tester = new IntegrityValidator();
+            var database = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString);
+            var result = database.Sql("Select * From SEC_USER").Result;
+            Assert.IsTrue(result.Any(q => q.USERNAME != string.Empty));
+        }
+        #endregion
+
+        #region Sequence
+
+        [TestMethod]
+        public void SpecificTableOfDatabaseMustHaveSequence()
+        {
+            var tester = new IntegrityValidator();
+            var database = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString);
+            var result = database.Sequence("NIMA").Exists();
+            Assert.AreEqual("Ensure Sequence: 'NIMA' exists", result.First().Description);
+            Assert.IsTrue(result.First().Succeed);
+            Assert.IsNull(result.First().Exception);
+        }
+
+        #endregion
+
+        #region Index
+
+        [TestMethod]
+        public void DatabaseMustHaveIndex()
+        {
+            var tester = new IntegrityValidator();
+            var database = tester.Database(ConfigurationManager.ConnectionStrings["connectionString1"].ConnectionString);
+            var result = database.Index("USERNAME_UNIQUE").Exists();
+            Assert.AreEqual("Ensure Index: 'USERNAME_UNIQUE' exists", result.First().Description);
+            Assert.IsTrue(result.First().Succeed);
+            Assert.IsNull(result.First().Exception);
+        }
+
+        #endregion
+
 
     }
 }

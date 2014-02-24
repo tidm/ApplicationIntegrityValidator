@@ -179,5 +179,24 @@ namespace ApplicationIntegrityValidator.Test
     //    Assert.AreEqual(ValidationResults.Failed, result.Result.First().Result);
     //    Assert.IsNotNull(result.Result.First().Exception);
     //}
+
+    //var result = tester.WebService("http://192.168.101.215:8888/Students").Where(r => r.Body == 1).GetAllStudents();
+
+
+
+    //http://192.168.101.215:8888/Api/Students/GetAll
+
+    //result.Response;
+    //result.Body
+
+
+    //var result = tester.WebService("http://192.168.101.215:8888/Students/GetAll")
+    //    .Request("GET", new { QS1 = "12" }).Where(resp => resp.Body == 1).Where
+
+
+    //var result = tester.WebService("http://192.168.101.215:8888/Students/GetAll")
+    //    .Request("GET", new { QS1 = "12" }, new {}).Returns(HttpStatusCodes.Ok).ReturnValueIs()
+//}
+//)
     //#endregion
 }
