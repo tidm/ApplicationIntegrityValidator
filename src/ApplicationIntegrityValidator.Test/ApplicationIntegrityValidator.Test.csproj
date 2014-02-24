@@ -66,7 +66,9 @@
     <Compile Include="FileIntegrityValidatorTests.cs" />
     <Compile Include="AppSettingsIntegrityValidatorTests.cs" />
     <Compile Include="DatabaseIntegrityValidatorTests.cs" />
-    <Compile Include="WebServiceIntegrityValidatorTests.cs" />
+    <Compile Include="WebServiceIntegrityValidatorTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ApplicationIntegrityValidator\ApplicationIntegrityValidator.csproj">
